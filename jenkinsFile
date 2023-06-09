@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools {
-        maven 'jenkins-maven'
-    }
+   
  
     stages {
         stage("Clone the project") {
@@ -13,19 +11,19 @@ pipeline {
  
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                echo ' compile'
             }
         }
  
         stage('Test') {
             steps {
-                echo 'mvn test'
+                echo ' test'
             }
         }
  
         stage('Package') {
             steps {
-                echo 'mvn package'
+                echo ' package'
             }
         }
     }
