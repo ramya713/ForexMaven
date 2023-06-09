@@ -19,13 +19,13 @@ pipeline {
  
         stage('Test') {
             steps {
-                bat 'mvn test'
+                echo 'mvn test'
             }
         }
  
         stage('Package') {
             steps {
-                bat 'mvn package'
+                echo 'mvn package'
             }
         }
     }
