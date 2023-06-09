@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    tools {
+        maven 'jenkins-maven'
+    }
+ 
+    stages {
+        stage("Clone the project") {
+            steps {
+                git branch: 'main', url: 'https://github.com/ramya713/ForexMaven.git'
+            }
+        }
+ 
+        stage('Build') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+ 
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+ 
+        stage('Package') {
+            steps {
+                bat 'mvn package'
+            }
+        }
+    }
+}
